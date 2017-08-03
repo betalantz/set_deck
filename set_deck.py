@@ -85,8 +85,13 @@ class Player(object):
     self.selectedCards.append(activeCards[a-1])
     self.selectedCards.append(activeCards[b-1])
     self.selectedCards.append(activeCards[c-1])
+    self.activeCards.remove(a-1)
+    self.activeCards.remove(b-1)
+    self.activeCards.remove(c-1)
+    return self
+
 
 deck1 = Deck('deck1')
 # deck1.deal()
-deck1.displayActive()
+deck1.displayActive().selectSet().displaySet.displayActive()
 # print deck1.cards
