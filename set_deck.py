@@ -58,16 +58,26 @@ class Deck(object):
     i = 0
     for card in self.activeCards:
       i += 1
-      print card["number"], card["shape"], card["color"], card["fill"] 
+      print i, card["number"], card["shape"], card["color"], card["fill"] 
     return self
 
-# print Deck().suffle()
+  def addPlayer(self, player,):
+    self.players.append(player)
+    player.addDeck(self)
+    return self
+  def displayPlayers(self):
+    for player in self.players:
+      print player.name, player.total
+    return self
 
 class Player(object):
   def __init__(self, name,):
     self.name = name.capitalize()
     self.total = 0
-  
+    self.deck = ''
+    self.set = []
+  def addDeck(self, deck):
+    self.deck = deck
   def info(self):
     pass
     # print info
@@ -76,6 +86,6 @@ class Player(object):
 
 
 deck1 = Deck('deck1')
-# deck1.deal()
-deck1.displayActive()
-# print deck1.cards
+deck1.addPlayer(Player('frank'))
+deck1.displayPlayers()
+# print deck1.players[0]
