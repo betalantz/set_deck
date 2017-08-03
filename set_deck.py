@@ -2,6 +2,7 @@ import random
 
 class Deck(object):
   def __init__(self, name = 'deck_1',):
+    self.active = True
     self.name = name
     self.cards = []
     self.activeCards = []
@@ -46,7 +47,7 @@ class Deck(object):
       indx = random.randint(0, len(self.cards) - 1 - i)
       self.cards.append(self.cards[indx])
       self.cards.remove(self.cards[indx])
- master
+ 
     return self.cards
 
   def deal(self, n = 1):
@@ -60,8 +61,7 @@ class Deck(object):
     i = 0
     for card in self.activeCards:
       i += 1
-
-    print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
+      print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
 
     return self
 
@@ -93,7 +93,24 @@ class Player(object):
     self.selectedCards.append(activeCards[b-1])
     self.selectedCards.append(activeCards[c-1])
 
+  def displaySet(self):
+    i = 0
+    for card in self.selectedCards:
+      i += 1
+
+    print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
+
 deck1 = Deck('deck1')
-deck1.addPlayer(Player('frank'))
-deck1.displayPlayers()
-# print deck1.players[0]
+
+def startgame():
+  val = raw_input('How many players? ')
+  for i in range(0, int(val)):
+    name = raw_input('Enter name of Player ' + str(i) + " ")
+    deck1.addPlayer(Player(name))
+
+startgame()
+deck1.displayActive()
+while deck1.active:
+  val = raw_input('>>> ')
+  if val.lower() == 'quit':
+    deck1.active = False
