@@ -5,9 +5,10 @@ class Deck(object):
     self.name = name
     self.cards = []
     self.activeCards = []
+    self.players = []
     self.gen()
     self.shuffle()
-    self.deal(3)
+    self.deal(4)
   def gen(self):
     for color in range(0,3):
       for shape in range(0,3):
@@ -57,8 +58,16 @@ class Deck(object):
     i = 0
     for card in self.activeCards:
       i += 1
-      print card["number"], card["shape"], card["color"], card["fill"] 
+      print i, card["number"], card["shape"], card["color"], card["fill"] 
     return self
+
+  def addPlayer(self, player,):
+    self.players.append(player)
+    return self
+  def displayPlayers(self):
+    print player.name, player.total
+    return self
+
 
 # print Deck().suffle()
 
@@ -71,8 +80,11 @@ class Player(object):
     pass
     # print info
 
-
-
+  def selectSet(self, a, b, c):
+    self.selectedCards = []
+    self.selectedCards.append(activeCards[a-1])
+    self.selectedCards.append(activeCards[b-1])
+    self.selectedCards.append(activeCards[c-1])
 
 deck1 = Deck('deck1')
 # deck1.deal()
