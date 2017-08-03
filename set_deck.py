@@ -40,11 +40,13 @@ class Deck(object):
             elif fill == 2:
               card['fill'] = 'open'
             self.cards.append(card)
+
   def shuffle(self):
     for i in range(0, len(self.cards)):
       indx = random.randint(0, len(self.cards) - 1 - i)
       self.cards.append(self.cards[indx])
       self.cards.remove(self.cards[indx])
+ master
     return self.cards
 
   def deal(self, n = 1):
@@ -58,7 +60,7 @@ class Deck(object):
     i = 0
     for card in self.activeCards:
       i += 1
-      print i, card["number"], card["shape"], card["color"], card["fill"] 
+    print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
     return self
 
   def addPlayer(self, player,):
