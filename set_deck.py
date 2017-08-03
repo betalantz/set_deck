@@ -60,11 +60,14 @@ class Deck(object):
     i = 0
     for card in self.activeCards:
       i += 1
+
     print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
+
     return self
 
   def addPlayer(self, player,):
     self.players.append(player)
+
     player.addDeck(self)
     return self
   def displayPlayers(self):
@@ -84,8 +87,11 @@ class Player(object):
     pass
     # print info
 
-
-
+  def selectSet(self, a, b, c):
+    self.selectedCards = []
+    self.selectedCards.append(activeCards[a-1])
+    self.selectedCards.append(activeCards[b-1])
+    self.selectedCards.append(activeCards[c-1])
 
 deck1 = Deck('deck1')
 deck1.addPlayer(Player('frank'))
