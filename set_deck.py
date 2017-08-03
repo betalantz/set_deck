@@ -92,6 +92,11 @@ class Player(object):
     self.selectedCards.append(activeCards[a-1])
     self.selectedCards.append(activeCards[b-1])
     self.selectedCards.append(activeCards[c-1])
+    self.activeCards.remove(a-1)
+    self.activeCards.remove(b-1)
+    self.activeCards.remove(c-1)
+    return self
+
 
   def displaySet(self):
     i = 0
@@ -101,6 +106,7 @@ class Player(object):
     print "This is card",i,":", card["number"], card["shape"], card["color"], card["fill"]
 
 deck1 = Deck('deck1')
+<<<<<<< HEAD
 
 def startgame():
   val = raw_input('How many players? ')
@@ -114,3 +120,14 @@ while deck1.active:
   val = raw_input('>>> ')
   if val.lower() == 'quit':
     deck1.active = False
+=======
+<<<<<<< HEAD
+# deck1.deal()
+deck1.displayActive().selectSet().displaySet.displayActive()
+# print deck1.cards
+=======
+deck1.addPlayer(Player('frank'))
+deck1.displayPlayers()
+# print deck1.players[0]
+>>>>>>> de96234f36b45217833d2450b7dbc2f16f77df9b
+>>>>>>> 93b4f0e83c59023fa61a7a5078b12c4e672c91c4
