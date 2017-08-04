@@ -89,9 +89,9 @@ class Player(object):
 
   def selectSet(self, a, b, c):
     self.selectedCards = []
-    self.selectedCards.append(activeCards[a-1])
-    self.selectedCards.append(activeCards[b-1])
-    self.selectedCards.append(activeCards[c-1])
+    self.selectedCards.append(self.deck.activeCards[a-1])
+    self.selectedCards.append(self.deck.activeCards[b-1])
+    self.selectedCards.append(self.deck.activeCards[c-1])
     self.activeCards.remove(a-1)
     self.activeCards.remove(b-1)
     self.activeCards.remove(c-1)
@@ -113,11 +113,17 @@ def startgame():
     name = raw_input('Enter name of Player ' + str(i) + " ")
     deck1.addPlayer(Player(name))
 
-startgame()
-deck1.displayActive()
-while deck1.active:
-  val = raw_input('>>> ')
-  if val.lower() == 'quit':
-    deck1.active = False
+# startgame()
+# deck1.displayActive()
+# while deck1.active:
+#   val = raw_input('>>> ')
+#   if val.lower() == 'quit':
+#     deck1.active = False
 
 deck1.displayPlayers()
+player1 = Player('sfkl')
+deck1.displayActive()
+player1.selectSet(2,4,5).displaySet()
+deck1.displayActive()
+
+
